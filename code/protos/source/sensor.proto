@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+service SoilSensor {
+  rpc ActivateModule(ActivateRequest) returns (ActivateResponse);
+  rpc CollectSoilSample(CollectRequest) returns (CollectResponse);
+  rpc AnalyzeSoilSample(AnalyzeRequest) returns (AnalyzeResponse);
+}
+
+message ActivateRequest {
+  string module_uuid = 1;
+}
+
+message ActivateResponse {
+  int32 status_code = 1;
+  string message = 2;
+}
+
+message CollectRequest {
+  message Point {
+    float x_coordinate = 1;
+    float y_coordinate = 2;
+    float z_coordinate = 3;
+  }
+  Point soil_sample_location = 1;
+}
+
+message CollectResponse {
+  bool success = 1;
+}
+
+message AnalyzeRequest {
+  enum Detail {
+    LOW = 0;
+    MED = 1;
+    HIGH = 2;
+    ULTRA = 3;
+  }
+  Detail detail = 1;
+}
+
+message AnalyzeResponse {
+  double minerals_ratio = 1;
+  double moisture_content = 2;
+  double organic_matter_ratio = 3;
+}
