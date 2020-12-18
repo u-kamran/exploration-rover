@@ -1,8 +1,28 @@
 ## Exploration Rover
 
-This repository contains sample code from an educational session that I taught on the topic of Protocol Buffers and gRPC.
+Contains sample code from an educational session that I taught on the topic of Protocol Buffers and gRPC.
 
-The sample code simulates communication between a primary controller and a soil sensor module on an exploration rover.
+Simulates communication between a primary controller and a soil sensor module on an exploration rover.
+
+## Running the Code
+
+Navigate to the following folder:
+
+```
+cd code
+```
+
+Launch the soil sensor module first:
+
+```
+python soil_sensor.py
+```
+
+Open another terminal window and run the primary controller:
+
+```
+python primary_controller.py
+```
 
 ## Example Output
 
@@ -68,7 +88,7 @@ pip install grpcio-tools
 Navigate to the following folder:
 
 ```
-cd protos
+cd code/protos
 ```
 
 Run the following script:
